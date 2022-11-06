@@ -67,10 +67,7 @@ img,
   letter-spacing: 0.02em;
   color: var(--main-color);
 
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0ms;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-nav-link:hover,
@@ -219,10 +216,7 @@ img,
 }
 
 .portfolio-list-link {
-  transition-property: box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0ms;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-list-link:hover,
@@ -295,10 +289,7 @@ img,
   border-radius: 4px;
   color: var(--for-icons-color);
 
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0ms;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-icon {
@@ -359,10 +350,7 @@ img,
   padding-top: 20px;
   padding-bottom: 20px;
 
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0ms;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-icon {
@@ -427,6 +415,11 @@ img,
   border-radius: 4px;
   border: none;
   cursor: pointer;
+
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0ms;
 }
 
 .filter-list button:hover,
@@ -435,11 +428,6 @@ img,
   color: var(--main-bg-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-
-  transition-property: color, background-color, box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0ms;
 }
 
 .portfolio-list-title {
@@ -504,10 +492,7 @@ img,
   font-style: normal;
   color: rgba(255, 255, 255, 0.6);
 
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0ms;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-list-item:not(:last-child) {
@@ -600,15 +585,17 @@ img,
 
 .thumb-portfolio {
   position: relative;
+  overflow: hidden;
 }
 
 .backdrop-portfolio {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 294px;
   width: 100%;
   height: 100%;
   background-color: rgba(33, 150, 243, 0.9);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop-discription {
@@ -619,14 +606,18 @@ img,
 }
 
 .portfolio-list-link:hover .backdrop-portfolio {
-  display: block;
   opacity: 1;
+  visibility: visible;
+  transform: translateY(-294px);
 }
 
 .backdrop-portfolio {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
+
+
 
 .work-discription {
   font-weight: 700;
@@ -644,7 +635,7 @@ img,
   position: relative;
 }
 
-.label {
+.thumb-work-discription {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -665,35 +656,3 @@ img,
   border-radius: 2px;
   background-color: var(--focus-color);
 }
-
-.box {
-  display: flex;
-  flex-wrap: wrap;
-  width: 200px;
-  height: 200px;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 10px;
-  background-color: orange;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-
-  /*  Задаём значения перехода  */
-  transition-property: background-color, color, transform;
-  transition-duration: 1s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0ms;
-
-  font-size: 24px;
-  color: white;
-}
-
-/* При ховере меняем значения анимируемых свойств */
-.box:hover {
-  background-color: var(--focus-color);
-  transform: rotate(360deg);
-  color: greenyellow;
-}
-
